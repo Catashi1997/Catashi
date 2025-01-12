@@ -11,20 +11,13 @@ document.addEventListener('keydown', function(e) {
     isJumping = true;
     cat.style.animation = 'jump 0.5s ease-out forwards';
     setTimeout(function() {
-      cat.style.animation = '';
+      cat.style.animation = ''; // Remueve la animación para que pueda reiniciarse
       isJumping = false;
     }, 500);
   }
 });
 
-// Animación de salto
-@keyframes jump {
-  0% { bottom: 0; }
-  50% { bottom: 80px; }
-  100% { bottom: 0; }
-}
-
-// Lógica del obstáculo
+// Lógica del obstáculo (el movimiento del obstáculo)
 function moveObstacle() {
   let obstaclePosition = obstacle.offsetLeft;
   if (obstaclePosition < 0) {
@@ -34,6 +27,7 @@ function moveObstacle() {
   } else {
     obstacle.style.right = obstaclePosition + 5 + 'px';
   }
+
   if (obstaclePosition > 0 && obstaclePosition < 50 && !isJumping) {
     alert('¡Game Over! Tu puntuación fue ' + score);
     score = 0;
