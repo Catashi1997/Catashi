@@ -1,55 +1,19 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  background-color: #f4f4f4;
-  font-family: Arial, sans-serif;
-}
-
-#gameContainer {
-  position: relative;
-  width: 100%;
-  height: 200px;
-  background-color: #e0e0e0;
-  overflow: hidden;
-}
-
-.gameObject {
-  position: absolute;
-  bottom: 0;
-  width: 50px;
-  height: 50px;
+@keyframes jump {
+  0% { bottom: 0; }
+  50% { bottom: 80px; }
+  100% { bottom: 0; }
 }
 
 #cat {
-  background-color: #ff6600; /* color del gato (puedes poner una imagen) */
+  background-color: #ff6600; /* color del gato, o pon una imagen si quieres */
   border-radius: 50%;
-}
-
-#obstacle {
-  background-color: #333;
-  width: 30px;
-  height: 30px;
-  right: -30px;
-  animation: moveObstacle 2s linear infinite;
-}
-
-#score {
+  width: 50px;
+  height: 50px;
   position: absolute;
-  top: 10px;
-  left: 10px;
-  font-size: 18px;
-  color: #333;
+  bottom: 0;
+  left: 50px;
 }
 
-@keyframes moveObstacle {
-  0% {
-    right: -30px;
-  }
-  100% {
-    right: 100%;
-  }
+#cat.jump {
+  animation: jump 0.5s ease-out forwards;
 }
