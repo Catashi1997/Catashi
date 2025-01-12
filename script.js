@@ -5,19 +5,19 @@ let scoreDisplay = document.getElementById('score');
 let score = 0;
 let isJumping = false;
 
-// Control del salto
+// Función para manejar el salto
 document.addEventListener('keydown', function(e) {
   if (e.code === 'Space' && !isJumping) {
     isJumping = true;
-    cat.style.animation = 'jump 0.5s ease-out forwards';
+    cat.classList.add('jump'); // Activa la animación de salto
     setTimeout(function() {
-      cat.style.animation = ''; // Remueve la animación para que pueda reiniciarse
+      cat.classList.remove('jump'); // Elimina la animación después de que termine
       isJumping = false;
-    }, 500);
+    }, 500); // El tiempo debe coincidir con la duración de la animación
   }
 });
 
-// Lógica del obstáculo (el movimiento del obstáculo)
+// Lógica del obstáculo (solo para probar si el juego está funcionando)
 function moveObstacle() {
   let obstaclePosition = obstacle.offsetLeft;
   if (obstaclePosition < 0) {
@@ -36,5 +36,5 @@ function moveObstacle() {
   }
 }
 
-// Actualizar movimiento
+// Mueve el obstáculo
 setInterval(moveObstacle, 20);
